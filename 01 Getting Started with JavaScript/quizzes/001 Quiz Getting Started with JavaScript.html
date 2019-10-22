@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>001 Quiz Getting Started with JavaScript</title>
+    </head>
+    <body>
+
+        <div style="background-color:#ffffaa" align = "center">
+            <script>
+                var c = '';
+                var opt = '';
+                var n = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j']
+
+                var quiz = {"count": 4, "next": null, "previous": null, "results": [{"_class": "assessment", "id": 1659136, "assessment_type": "multiple-choice", "created": "2017-09-18T18:23:12Z", "prompt": {"feedbacks": ["", "", ""], "relatedLectureIds": ["7998720"], "question": "<p>Within an HTML which one is not correct to get JavaScript into the page</p>", "answers": ["<pre class=\"prettyprint linenums\">&lt;script src=\"script.js\" type=\"text/javascript\"&gt;&lt;/script&gt;</pre>", "<pre class=\"prettyprint linenums\">&lt;script src=\"script.js\" &gt;&lt;/script&gt;</pre>", "<pre class=\"prettyprint linenums\">&lt;script path=\"script.js\" type=\"text/javascript\"&gt;&lt;/script&gt;</pre>"]}, "correct_response": ["c"], "updated": "2017-09-18T18:23:12Z", "section": "", "question_plain": "Within an HTML which one is not correct to get JavaScript into the page", "related_lectures": [{"_class": "lecture", "id": 7998720, "title": "Add JavaScript to your WebPage", "created": "2017-09-15T20:06:58Z", "asset": {"_class": "asset", "id": 9741692, "asset_type": "Video", "title": "1- 3 Adding JavaScript v2.mp4", "created": "2017-09-29T02:59:00Z"}, "object_index": 4, "url": "/javascript-training/learn/v4/t/lecture/7998720"}], "original_assessment_id": 0}, {"_class": "assessment", "id": 1659140, "assessment_type": "multiple-choice", "created": "2017-09-18T18:24:33Z", "prompt": {"relatedLectureIds": ["7998724"], "feedbacks": ["", "", ""], "question": "<p>What does console.log('hello world') display for the webpage visitor</p>", "answers": ["<p>nothing</p>", "<p>hello world popup window</p>", "<p>the code is incorrect and will not work</p>"]}, "correct_response": ["a"], "updated": "2017-09-18T18:24:33Z", "section": "", "question_plain": "What does console.log('hello world') display for the webpage visitor", "related_lectures": [{"_class": "lecture", "id": 7998724, "title": "Console debug", "created": "2017-09-15T20:07:08Z", "asset": {"_class": "asset", "id": 9603804, "asset_type": "Video", "title": "1-5-Console Log Messages.mp4", "created": "2017-09-15T20:29:30Z"}, "object_index": 6, "url": "/javascript-training/learn/v4/t/lecture/7998724"}], "original_assessment_id": 0}, {"_class": "assessment", "id": 1659146, "assessment_type": "multiple-choice", "created": "2017-09-18T18:27:07Z", "prompt": {"feedbacks": ["", "", ""], "relatedLectureIds": ["7998726"], "question": "<p>Which of the below is not a way to comment code in JavaScript</p>", "answers": ["<p>var a = 0;<br>var b = \"hello\";<br>// comment goes here</p>\n\n<p><br></p>", "<p>var a = 0;<br>var b = \"hello\";<br>/*<br></p><p>more comments<br>var c = \"world\";<br>*/</p>", "<p>var a = 0;<br>var b = \"hello\";<br>&lt;!-- comment goes here --&gt;</p>"]}, "correct_response": ["c"], "updated": "2017-09-18T18:27:07Z", "section": "", "question_plain": "Which of the below is not a way to comment code in JavaScript", "related_lectures": [{"_class": "lecture", "id": 7998726, "title": "JavaScript Comments", "created": "2017-09-15T20:07:16Z", "asset": {"_class": "asset", "id": 9603792, "asset_type": "Video", "title": "1- 6 Javascript Comments.mp4", "created": "2017-09-15T20:29:30Z"}, "object_index": 7, "url": "/javascript-training/learn/v4/t/lecture/7998726"}], "original_assessment_id": 0}, {"_class": "assessment", "id": 1659158, "assessment_type": "multiple-choice", "created": "2017-09-18T18:29:40Z", "prompt": {"feedbacks": ["", "", ""], "relatedLectureIds": ["7998722"], "question": "<p>Below is code from a script.js file, what is wrong with it</p>\n\n<pre class=\"prettyprint linenums\">&lt;script&gt;\nvar a = 0;\nvar b = \"hello\"\nvar c = \"world\";\n&lt;/script&gt;</pre>", "answers": ["<p>nothing it should work</p>", "<p>the script tags should be removed</p>", "<p>script.js path should be included</p>"]}, "correct_response": ["b"], "updated": "2017-09-18T18:29:40Z", "section": "", "question_plain": "Below is code from a script.js file, what is wrong with it\n\n&lt;script&gt;\nvar a = 0;\nvar b = \"hello\"\nvar c = \"world\";\n&lt;/script&gt;", "related_lectures": [{"_class": "lecture", "id": 7998722, "title": "First JavaScript", "created": "2017-09-15T20:07:03Z", "asset": {"_class": "asset", "id": 9603806, "asset_type": "Video", "title": "1-4 First JavaScript.mp4", "created": "2017-09-15T20:29:30Z"}, "object_index": 5, "url": "/javascript-training/learn/v4/t/lecture/7998722"}], "original_assessment_id": 0}]};
+
+                for (var i = 0; i < quiz.results.length; i++) {
+
+                    var question = '<font color="ff0000"><br><h3>Question-' + i + ': </h3> <b>' + quiz.results[i].prompt.question + '</b> <br>';
+
+                    for (var j = 0; j < quiz.results[i].prompt.answers.length; j++) {
+
+                        opt = opt.concat(quiz.results[i].prompt.answers[j] ? '<p style="cursor: pointer" onclick="this.style=\'font-weight: bold; color: #CE534D\'">' + n[j] + ': ' + quiz.results[i].prompt.answers[j].toString().replace(/,/g, '<br>') + '</p>' : '<br>');
+                    }
+                    var ans = quiz.results[i].correct_response ? '<p> <br> <input style="cursor: pointer" type="button" onclick="this.value=\'Answer is: ' + quiz.results[i].correct_response.toString() + '\'" value="Show Answer"></input> </p>' : '<br>';
+                    c = c.concat(question, opt, ans);
+                    opt = ''
+                    }
+                document.write(c);
+            </script>
+        </div>
+    </body>
+    </html>
